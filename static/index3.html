@@ -14,38 +14,37 @@
 <body>
 
     <script type="text/babel">
+        // class Square extends React.Component {
+        //     constructor(props) {
+        //         super(props);
+        //         this.clickMe = this.clickMe.bind(this);
+        //     }
+        //     clickMe() {
+        //         console.log(this);
+        //     }
+        //     render() {
+        //         return <button onClick={this.clickMe}>click me</button>;
+        //     }
+        // }
         class Square extends React.Component {
-            constructor(props) {
-                super(props);
-                this.state = { a: 1, b: 2 };
-            }
-            changeState = () => {
-                this.setState({
-                    a: Math.random() * 100,
-                    b: Math.random() * 100,
-                });
+            clickMe = () => {
+                this.state = { a: 1, b: 2, c: 3 };
+                console.log(this);
+
             }
             render() {
-                return (
-
-                    <div>
-                        a = {this.state.a}, b = {this.state.b}
-                        <button onClick={this.changeState}>Clcik Me</button>
-                    </div>)
-
+                return <button onClick={this.clickMe}>click me</button>;
             }
         }
         ReactDOM.render(
             <Square />,
-            document.getElementById('react-app'),
+            document.getElementById('btn'),
             // document.getElementById('btn')
         )
 
     </script>
-    <div id="react-app">
-        <butto id="btn"></button>
-    </div>
-    <!-- <button onClick={this.changeState} onclick="changeState()">Click Me</button> -->
+    <button id="btn"></button>
+    <div id="react-app"></div>
 </body>
 
 </html>

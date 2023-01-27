@@ -27,22 +27,54 @@
         //     }
         // }
         class Square extends React.Component {
-            clickMe = () => {
-                console.log(this);
+
+            constructor() {
+                super();
+                this.state = {
+                    stan: 0
+                };
+            }
+
+            onButtonCLick = () => {
+                if (this.state.stan == 0) {
+                    console.log(this)
+                    this.setState({
+                        stan: 1
+                    })
+                }
+                else {
+                    console.log(this)
+                    this.setState({
+                        stan: 0
+                    })
+                }
+
             }
             render() {
-                return <button onClick={this.clickMe}>click me</button>;
+                return <button onClick={this.onButtonCLick}>klik</button>
             }
         }
+        //     }
+        //     componentDidMount() {
+        //         console.log("initial state - > " + this.state.x)
+        //         this.setState({
+        //             x: true
+        //         },
+        //             () => console.log("state already updated - > " + this.state.x)
+        //         )
+        //         console.log("state not updated yet -> " + this.state.x)
+        //     }
+        //     
+        // }
         ReactDOM.render(
             <Square />,
             document.getElementById('btn'),
             // document.getElementById('btn')
         )
 
+
     </script>
     <button id="btn"></button>
-    <div id="react-app"></div>
 </body>
 
 </html>

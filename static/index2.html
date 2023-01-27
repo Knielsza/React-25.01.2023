@@ -15,23 +15,24 @@
 
     <script type="text/babel">
         class Square extends React.Component {
-            constructor(props) {
-                super(props);
-                this.state = { a: 1, b: 2 };
+
+            constructor() {
+                super()
+                this.state = {
+                    x: false
+                }
             }
-            changeState = () => {
+            componentDidMount() {
+                console.log("initial state - > " + this.state.x)
                 this.setState({
-                    a: Math.random() * 100,
-                    b: Math.random() * 100,
-                });
+                    x: true
+                },
+                    () => console.log("state already updated - > " + this.state.x)
+                )
+                console.log("state not updated yet -> " + this.state.x)
             }
             render() {
-                return (
-
-                    <div>
-                        a = {this.state.a}, b = {this.state.b}
-                        <button onClick={this.changeState}>Clcik Me</button>
-                    </div>)
+                return <div>{this.state.x}</div>
 
             }
         }
@@ -42,10 +43,7 @@
         )
 
     </script>
-    <div id="react-app">
-        <butto id="btn"></button>
-    </div>
-    <!-- <button onClick={this.changeState} onclick="changeState()">Click Me</button> -->
+    <div id="react-app"></div>
 </body>
 
 </html>
